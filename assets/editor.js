@@ -84,7 +84,6 @@ function drag(ev) {
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    console.log(data);
     var image  = document.getElementById(data);
     var canvas = document.createElement("canvas");
     canvas.setAttribute("id", "userImgcanvas");
@@ -96,40 +95,38 @@ function drop(ev) {
     canvas.width  = 400;
     canvas.height = 500;
     var ctx = canvas.getContext("2d");
-    ctx.filter = 'blur(5px)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0,  canvas.width, canvas.height);
-    // context.drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 }
 function filter(data){
-    let fcanvas = document.getElementById('userImgcanvas');
-    let userImg = document.getElementById('drag2').src;
-    console.log(userImg);
-    // console.log(data);
-    // var image  = document.getElementById(data);
-    var mainCanvas = document.createElement("userImgcanvas");
+    var fcanvas = document.getElementById('userImgcanvas');
+    var userImg = document.getElementById('drag2');
     var w = fcanvas.width;
     var h = fcanvas.height
-    fcanvas.width  = 400;
-    fcanvas.height = 500;
-    var ctx = fcanvas.getContext("2d");
-    ctx.filter = 'blur(5px)';
-    ctx.fillRect(0, 0, fcanvas.width, fcanvas.height);
-    ctx.drawImage(userImg, 0, 0,  fcanvas.width, fcanvas.height);
-    // })
+    if(data == 'blur'){
+        let Ctx = fcanvas.getContext("2d");
+        Ctx.filter = 'blur(5px)';
+        Ctx.fillRect(0, 0, fcanvas.width, fcanvas.height);
+        Ctx.drawImage(userImg, 0, 0, fcanvas.width, fcanvas.height);
+    }
+    if(data == 'scale'){
+        let Ctx = fcanvas.getContext("2d");
+        Ctx.filter = 'grayscale(100%)';
+        Ctx.fillRect(0, 0, fcanvas.width, fcanvas.height);
+        Ctx.drawImage(userImg, 0, 0, fcanvas.width, fcanvas.height);
+    }
+    if(data == 'contrast'){
+        let Ctx = fcanvas.getContext("2d");
+        Ctx.filter = 'contrast(200%)';
+        Ctx.fillRect(0, 0, fcanvas.width, fcanvas.height);
+        Ctx.drawImage(userImg, 0, 0, fcanvas.width, fcanvas.height);
+    }
+    if(data == 'saturate'){
+        let Ctx = fcanvas.getContext("2d");
+        Ctx.filter = 'saturate(4)';
+        Ctx.fillRect(0, 0, fcanvas.width, fcanvas.height);
+        Ctx.drawImage(userImg, 0, 0, fcanvas.width, fcanvas.height);
+    }
 }
-function saveImage() {
-    var image = document.getElementById("userImgcanvas");
-    image.toBlob(function (blob) {
-    var zip = new JSZip();
-    zip.file("Hello.txt", "Hello World\n");
-    var img = zip.folder("images");
-    img.file('ex', blob, {base64: true});
-    zip.generateAsync({type:"blob"})
-    .then(function(content) {
-        // see FileSaver.js
-        saveAs(content, "example.zip");
-    });
-    })
-}
+
 

@@ -30,10 +30,22 @@
         </div>
         <div class="sideBar">
             <div class="min-content con con1">
-                <div onclick="filter('opacity')" class="box" style="border:1px solid green; width:100px; height:100px; background:greenyellow">
-                    opacity(50%)
+            <div class="filters-main-box" >
+                    <div class="filter" onclick="filter('scale')" style="filter: grayscale(100%);"><img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter" onclick="filter('blur')"  style="filter: blur(3px);"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter" onclick="filter('contrast')" style="filter: brightness(150%)"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter" onclick="filter('saturate')" style="filter: saturate(4)"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
+                    <div class="filter"> <img class="filter-img" src="assets/img/girl.jpg" alt=""> </div>
                 </div>
-                <!-- <button onclick="saveImage()">Download Img</button> -->
             </div>
             <div class="min-content con con2">
                 <label for="uploadFile" class="img-upload-btn">Upload Image</label>
@@ -48,7 +60,7 @@
                 </form>
                 <div id="preview"></div>
             </div>
-            <div class="min-content con con3" style="background-color: greenyellow;">
+            <div class="min-content con con3 boxes-12">
             </div>
         </div>
         <div class="arrow-btn hide">
@@ -70,7 +82,7 @@
         </div>
     </div>
     <script>
-        function Img(input, id) {
+        // function Img(input, id) {
             // console.log('ok');
             // if (input.files && input.files[0]) {
             //     var reader = new FileReader();
@@ -80,13 +92,13 @@
 
             //     reader.readAsDataURL(input.files[0]);
             // }
-            document.querySelector('#file').addEventListener('change', (e) => {
-                try {
-                    readFile(e.target.files[0]);
-                } catch (e) {
-                    console.error(e.message);
-                }
-            });
+            // document.querySelector('#file').addEventListener('change', (e) => {
+            //     try {
+            //         readFile(e.target.files[0]);
+            //     } catch (e) {
+            //         console.error(e.message);
+            //     }
+            // });
             // $('#done').on('submit', function(e){
             //     e.preventDefault();
             //     var formData = new FormData(this);
